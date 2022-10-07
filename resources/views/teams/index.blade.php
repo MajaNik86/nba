@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.master')
+@section('title', 'Teams')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Teams</title>
-</head>
 
-<body>
+@section('content')
+
+
     <ul>
         @foreach ($teams as $team)
             <li>
@@ -19,7 +15,4 @@
         @endforeach
 
     </ul>
-
-</body>
-
-</html>
+@endsection

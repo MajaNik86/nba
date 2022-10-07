@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Player:
-    </title>
-</head>
+@section('title', 'Player')
 
-<body>
+@section('content')
+
     <h2 class="blog-post-title">{{ $player->first_name }} {{ $player->last_name }}</h2>
 
     <p> Email: {{ $player->email }}</p>
@@ -18,6 +12,5 @@
 
     </p>
 
-</body>
 
-</html>
+@endsection
