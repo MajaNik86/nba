@@ -9,6 +9,10 @@ use App\Http\Requests\CreateUserRequest;
 
 class RegisterController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
     public function create()
     {
         return view('auth.register');

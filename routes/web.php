@@ -37,6 +37,6 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/logout', [LogoutController::class, 'destroy']);
 
 // ruta za dobavljanje forme za login
-Route::get('/login', [LoginController::class, 'create']);
+Route::get('/login', [LoginController::class, 'create'])->name('login');
 // ruta za submitovanje registracije
 Route::post('/login', [LoginController::class, 'store']);

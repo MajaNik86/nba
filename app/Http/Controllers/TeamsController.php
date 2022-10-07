@@ -7,8 +7,13 @@ use App\Models\Team;
 
 class TeamsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => 'index']);
+    }
     public function index()
     {
+
         $teams = Team::all();
         return view('teams.index', ['teams' => $teams]);
     }
@@ -17,11 +22,4 @@ class TeamsController extends Controller
         $team = Team::with('players')->find($id);
         return view('teams.show', compact('team'));
     }
-
-
-    //     public function show($id)
-    //     {
-    //         $team = Team::find($id);
-    //         return view('teams.show', compact('team'));
-    //     }
 }
