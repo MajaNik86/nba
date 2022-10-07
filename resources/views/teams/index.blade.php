@@ -12,7 +12,7 @@
     <ul>
         @foreach ($teams as $team)
             <li>
-                <a href="">
+                <a href="/teams/{{ $team->id }}">
                     {{ $team->name }}
                 </a>
             </li>
