@@ -6,6 +6,7 @@ use App\Http\Controllers\TeamsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\CommentsController;
 
 
 /*
@@ -40,3 +41,6 @@ Route::get('/logout', [LogoutController::class, 'destroy']);
 Route::get('/login', [LoginController::class, 'create'])->name('login');
 // ruta za submitovanje registracije
 Route::post('/login', [LoginController::class, 'store']);
+
+// ruta za komentare
+Route::post('/teams/{id}/comments', [CommentsController::class, 'store']);

@@ -27,5 +27,30 @@
         </ul>
         </p>
     </div>
+    <div class="blog-post">
+        <h3>Comments:</h3>
+        <ul>
+            @foreach ($team->comments as $comment)
+                <li> {{ $comment->content }}</li>
+            @endforeach
+        </ul>
+    </div>
+
+    <form method="POST" action="/teams/{{ $team->id }}/comments">
+
+        @csrf
+
+        <div class="mb-3">
+
+            <label class="form-label">Leave a comment:</label>
+            <textarea name="content" rows="2" class="form-control"></textarea>
+        </div>
+
+        @error('content')
+            @include('partials.error')
+        @enderror
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 
 @endsection

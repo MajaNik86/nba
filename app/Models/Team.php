@@ -13,4 +13,17 @@ class Team extends Model
     {
         return $this->hasMany(Player::class);
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function addComment($content, $id)
+    {
+        $this->comments()->create([
+            'content' => $content,
+            'user_id' => $id,
+        ]);
+    }
 }
