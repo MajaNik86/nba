@@ -43,7 +43,7 @@ Route::get('/login', [LoginController::class, 'create'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 
 // ruta za komentare
-Route::post('/teams/{id}/comments', [CommentsController::class, 'store']);
+Route::post('/teams/{id}/comments', [CommentsController::class, 'store'])->middleware('words');
 
 
 // ruta za validaciju
