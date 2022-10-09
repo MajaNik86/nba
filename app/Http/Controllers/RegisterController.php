@@ -6,6 +6,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\CreateUserRequest;
+use App\Mail\MailVerified;
+use Illuminate\Support\Facades\Mail;
+
 
 class RegisterController extends Controller
 {
@@ -28,7 +31,19 @@ class RegisterController extends Controller
         $user->password = bcrypt($validated['password']);
 
         $user->save();
-        auth()->login($user);
-        return redirect('/teams');
+
+        Mail::to($user)->send(new MailVerified($user));
+        session()->flash('message', 'Please verify your email');
+        return redirect('/login');
+
+        // auth()->login($user);
+        // return redirect('/teams');
+    }
+
+    public function update(User $user)
+    {
+        $user->is_verified = true;
+
+        return redirect('/login');
     }
 }

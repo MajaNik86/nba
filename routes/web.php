@@ -39,8 +39,13 @@ Route::get('/logout', [LogoutController::class, 'destroy']);
 
 // ruta za dobavljanje forme za login
 Route::get('/login', [LoginController::class, 'create'])->name('login');
-// ruta za submitovanje registracije
+// ruta za submitovanje login-a, dodala sam middleware
 Route::post('/login', [LoginController::class, 'store']);
 
 // ruta za komentare
 Route::post('/teams/{id}/comments', [CommentsController::class, 'store']);
+
+
+// ruta za validaciju
+
+Route::get('/users/{id}', [RegisterController::class, 'update']);
