@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\NewsController;
 
 
 /*
@@ -39,7 +40,7 @@ Route::get('/logout', [LogoutController::class, 'destroy']);
 
 // ruta za dobavljanje forme za login
 Route::get('/login', [LoginController::class, 'create'])->name('login');
-// ruta za submitovanje login-a, dodala sam middleware
+// ruta za submitovanje login-a
 Route::post('/login', [LoginController::class, 'store']);
 
 // ruta za komentare
@@ -49,3 +50,6 @@ Route::post('/teams/{id}/comments', [CommentsController::class, 'store'])->middl
 // ruta za validaciju
 
 Route::get('/users/{id}', [RegisterController::class, 'update']);
+
+Route::get('/news', [NewsController::class, 'index']);
+Route::get('/news/{id}', [NewsController::class, 'show']);

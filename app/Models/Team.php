@@ -26,4 +26,9 @@ class Team extends Model
             'user_id' => $id,
         ]);
     }
+
+    public function news()
+    {
+        return $this->hasMany(News::class);
+    }
 }
