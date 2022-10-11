@@ -21,7 +21,7 @@ class Team extends Model
 
     public function addComment($content, $id)
     {
-        $this->comments()->create([
+        return $this->comments()->create([
             'content' => $content,
             'user_id' => $id,
         ]);
